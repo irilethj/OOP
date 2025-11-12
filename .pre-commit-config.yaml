@@ -1,0 +1,24 @@
+repos:
+  # 🧹 Ruff: стиль, форматирование, импорты
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.14.2
+    hooks:
+      - id: ruff-check
+#        args: [--fix]
+      - id: ruff-format
+
+  # 🧠 Mypy: проверка типов
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.18.2
+    hooks:
+      - id: mypy
+        args: [--config-file=pyproject.toml, .]
+        pass_filenames: false
+
+  # 🧾 Полезные базовые хуки
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-yaml
